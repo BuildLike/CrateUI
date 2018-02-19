@@ -22,15 +22,15 @@ class Main extends PluginBase{
 	
 	public function onEnable(){
 		$this->getServer()->getCommandMap()->register("getkey", new Commands\getkey());
-		$this->getLogger()->info("§aAbilitato.");
+		$this->getLogger()->info("§a로드 완료!");
 	}
 	
 	public function onDisable(){
-	    $this->getLogger()->info("§cDisabilitato.");
+	    $this->getLogger()->info("§cUnLoad!");
 	}
 
 	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
-	     if($cmd->getName() == "crate"){
+	     if($cmd->getName() == "뽑기하기"){
 			 if($sender instanceof Player){
 				$api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 				if ($api === null || $api->isDisabled()) {
@@ -71,7 +71,7 @@ class Main extends PluginBase{
 								 break;
 									 }
 							}else{
-								$sender->sendMessage("§9Crate> §fYou don't have §aCommon §fKey.");
+								$sender->sendMessage("§9Crate> §f당신은 §f키가 없습니다.");
 							}
 							break;
 						case 2:
